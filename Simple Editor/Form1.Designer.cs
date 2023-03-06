@@ -45,14 +45,16 @@
             toolStripButtonOpen = new ToolStripButton();
             toolStripSeparator5 = new ToolStripSeparator();
             toolStripButtonSave = new ToolStripButton();
+            toolStripButtonSaveAs = new ToolStripButton();
             mainStatusBar = new StatusStrip();
             openFileDialog = new OpenFileDialog();
             saveFileDialog = new SaveFileDialog();
             fontDialog = new FontDialog();
             textEditor = new RichTextBox();
-            toolStripButtonSaveAs = new ToolStripButton();
+            toolStripStatusLabelSizeOfText = new ToolStripStatusLabel();
             mainMenu.SuspendLayout();
             mainToolBar.SuspendLayout();
+            mainStatusBar.SuspendLayout();
             SuspendLayout();
             // 
             // mainMenu
@@ -76,50 +78,50 @@
             // newToolStripMenuItem
             // 
             newToolStripMenuItem.Name = "newToolStripMenuItem";
-            newToolStripMenuItem.Size = new Size(224, 26);
+            newToolStripMenuItem.Size = new Size(141, 26);
             newToolStripMenuItem.Text = "&New";
             newToolStripMenuItem.Click += newToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(221, 6);
+            toolStripSeparator2.Size = new Size(138, 6);
             // 
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(224, 26);
+            openToolStripMenuItem.Size = new Size(141, 26);
             openToolStripMenuItem.Text = "&Open";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(221, 6);
+            toolStripSeparator4.Size = new Size(138, 6);
             // 
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(224, 26);
+            saveToolStripMenuItem.Size = new Size(141, 26);
             saveToolStripMenuItem.Text = "&Save";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
             // saveAsToolStripMenuItem
             // 
             saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            saveAsToolStripMenuItem.Size = new Size(224, 26);
+            saveAsToolStripMenuItem.Size = new Size(141, 26);
             saveAsToolStripMenuItem.Text = "Save &as";
             saveAsToolStripMenuItem.Click += saveAsToolStripMenuItem_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(221, 6);
+            toolStripSeparator3.Size = new Size(138, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(224, 26);
+            exitToolStripMenuItem.Size = new Size(141, 26);
             exitToolStripMenuItem.Text = "&Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -174,13 +176,24 @@
             toolStripButtonSave.Text = "Save";
             toolStripButtonSave.Click += saveToolStripMenuItem_Click;
             // 
+            // toolStripButtonSaveAs
+            // 
+            toolStripButtonSaveAs.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButtonSaveAs.Image = (Image)resources.GetObject("toolStripButtonSaveAs.Image");
+            toolStripButtonSaveAs.ImageTransparentColor = Color.Magenta;
+            toolStripButtonSaveAs.Name = "toolStripButtonSaveAs";
+            toolStripButtonSaveAs.Size = new Size(64, 24);
+            toolStripButtonSaveAs.Text = "Save As";
+            toolStripButtonSaveAs.Click += saveAsToolStripMenuItem_Click;
+            // 
             // mainStatusBar
             // 
             mainStatusBar.ImageScalingSize = new Size(20, 20);
-            mainStatusBar.Location = new Point(0, 578);
+            mainStatusBar.Items.AddRange(new ToolStripItem[] { toolStripStatusLabelSizeOfText });
+            mainStatusBar.Location = new Point(0, 574);
             mainStatusBar.Name = "mainStatusBar";
             mainStatusBar.Padding = new Padding(1, 0, 16, 0);
-            mainStatusBar.Size = new Size(914, 22);
+            mainStatusBar.Size = new Size(914, 26);
             mainStatusBar.TabIndex = 3;
             mainStatusBar.Text = "statusStrip1";
             // 
@@ -194,20 +207,16 @@
             textEditor.Location = new Point(0, 57);
             textEditor.Margin = new Padding(3, 4, 3, 4);
             textEditor.Name = "textEditor";
-            textEditor.Size = new Size(914, 521);
+            textEditor.Size = new Size(914, 517);
             textEditor.TabIndex = 4;
             textEditor.Text = "";
             textEditor.TextChanged += textEditor_TextChanged;
             // 
-            // toolStripButtonSaveAs
+            // toolStripStatusLabelSizeOfText
             // 
-            toolStripButtonSaveAs.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripButtonSaveAs.Image = (Image)resources.GetObject("toolStripButtonSaveAs.Image");
-            toolStripButtonSaveAs.ImageTransparentColor = Color.Magenta;
-            toolStripButtonSaveAs.Name = "toolStripButtonSaveAs";
-            toolStripButtonSaveAs.Size = new Size(64, 24);
-            toolStripButtonSaveAs.Text = "Save As";
-            toolStripButtonSaveAs.Click += saveAsToolStripMenuItem_Click;
+            toolStripStatusLabelSizeOfText.Name = "toolStripStatusLabelSizeOfText";
+            toolStripStatusLabelSizeOfText.Size = new Size(39, 20);
+            toolStripStatusLabelSizeOfText.Text = "0 KB";
             // 
             // MainForm
             // 
@@ -227,6 +236,8 @@
             mainMenu.PerformLayout();
             mainToolBar.ResumeLayout(false);
             mainToolBar.PerformLayout();
+            mainStatusBar.ResumeLayout(false);
+            mainStatusBar.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -255,5 +266,6 @@
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripButton toolStripButtonSave;
         private ToolStripButton toolStripButtonSaveAs;
+        private ToolStripStatusLabel toolStripStatusLabelSizeOfText;
     }
 }

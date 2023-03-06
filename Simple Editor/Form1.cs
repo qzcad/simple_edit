@@ -13,6 +13,14 @@ namespace Simple_Editor
             this.textChanged = false;
         }
 
+        internal TextStatisticsProvider TextStatisticsProvider
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         private void WriteText(string filePath)
         {
             this.filePath = filePath;
@@ -78,6 +86,7 @@ namespace Simple_Editor
         private void textEditor_TextChanged(object sender, EventArgs e)
         {
             this.textChanged = true;
+            this.ShowStatistics();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -93,6 +102,13 @@ namespace Simple_Editor
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.SaveAs();
+        }
+
+        private void ShowStatistics()
+        {
+            TextStatisticsProvider provider = new TextStatisticsProvider(this.textEditor.Text);
+            int sizeKb = provider.sizeKb();
+            this.toolStripStatusLabelSizeOfText.Text = sizeKb.ToString() + " KB";
         }
     }
 }

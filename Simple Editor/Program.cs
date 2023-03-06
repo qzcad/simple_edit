@@ -2,6 +2,14 @@ namespace Simple_Editor
 {
     internal static class Program
     {
+        public static MainForm MainForm
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
