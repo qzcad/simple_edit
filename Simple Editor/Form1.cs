@@ -42,9 +42,9 @@ namespace Simple_Editor
 
         private void SaveChanges()
         {
-            if (this.textChanged) 
-            { 
-                if (MessageBox.Show("Save changes?", "Text is changed", MessageBoxButtons.YesNo) == DialogResult.Yes) 
+            if (this.textChanged)
+            {
+                if (MessageBox.Show("Save changes?", "Text is changed", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     this.Save();
                 }
@@ -53,19 +53,21 @@ namespace Simple_Editor
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.SaveChanges();
             this.Close();
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.SaveChanges();
             this.textEditor.Clear();
+            this.textChanged = false;
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (this.openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
+                this.SaveChanges();
                 this.filePath = this.openFileDialog.FileName;
                 string text = System.IO.File.ReadAllText(this.filePath);
                 this.textEditor.Text = text;
@@ -76,6 +78,21 @@ namespace Simple_Editor
         private void textEditor_TextChanged(object sender, EventArgs e)
         {
             this.textChanged = true;
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.SaveChanges();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Save();
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.SaveAs();
         }
     }
 }
