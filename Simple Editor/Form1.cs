@@ -1,3 +1,8 @@
+using System;
+using System.Linq;
+using System.Net;
+using System.Text.RegularExpressions;
+
 namespace Simple_Editor
 {
     public partial class MainForm : Form
@@ -14,6 +19,14 @@ namespace Simple_Editor
         }
 
         internal TextStatisticsProvider TextStatisticsProvider
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal ZnuNewsProvider ZnuNewsProvider
         {
             get => default;
             set
@@ -107,8 +120,18 @@ namespace Simple_Editor
         private void ShowStatistics()
         {
             TextStatisticsProvider provider = new TextStatisticsProvider(this.textEditor.Text);
-            int sizeKb = provider.sizeKb();
-            this.toolStripStatusLabelSizeOfText.Text = sizeKb.ToString() + " KB";
+            var stats = provider.Calc();
+            this.mainStatusBar.Items.Clear();
+            foreach (var pair in stats)
+            {
+                this.mainStatusBar.Items.Add(pair.Value);
+            }
+        }
+
+        private void loadZNUNewsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ZnuNewsProvider provider = new ZnuNewsProvider();
+            textEditor.Text += provider.Load();
         }
     }
 }

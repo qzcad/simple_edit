@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Simple_Editor
 {
-    internal class TextStatisticsProvider
+    internal class TextStatisticsProvider: ITextStatisticsProvider
     {
         private const int kb = 1024;
         private string text;
@@ -16,9 +16,22 @@ namespace Simple_Editor
             this.text = text;
         }
 
-        public int sizeKb()
+        private int SizeB()
         {
-            return this.text.Length * sizeof(char) / kb;
+            return this.text.Length * sizeof(char);
+        }
+
+        public int CharactersNumber() { return this.text.Length; }
+
+        public Dictionary<string, string> Calc()
+        {
+            Dictionary<string, string> stats = new Dictionary<string, string>();
+            var size_b = this.SizeB();
+            var size_kb =(float)size_b / kb;
+            stats["sizeB"] = size_b.ToString() + " B";
+            stats["sizeKB"] = size_kb.ToString("0.000") + " KB";
+            stats["characters"] = CharactersNumber().ToString();
+            return stats;
         }
     }
 }
