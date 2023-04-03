@@ -3,11 +3,12 @@
   <Class Name="Simple_Editor.MainForm">
     <Position X="5.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>hACAAr2AAiACQAIAAGCAxAUCCAwAUEgAAhgQACAIAAQ=</HashCode>
+      <HashCode>hACAAr2gAiACQAIAAGCExAUGCAgAUEgAAhgQACAIAAQ=</HashCode>
       <FileName>Form1.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="TextStatisticsProvider" />
+      <Property Name="ZnuNewsProvider" />
     </ShowAsAssociation>
   </Class>
   <Class Name="System.Windows.Forms.Form" Collapsed="true">
@@ -31,9 +32,46 @@
   <Class Name="Simple_Editor.TextStatisticsProvider" Collapsed="true">
     <Position X="2" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAEAIAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAiAAAAAAAAIAAAAAAAAAAACAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>TextStatisticsProvider.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
+  <Class Name="Simple_Editor.ZnuNewsProvider" Collapsed="true">
+    <Position X="8.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ZnuNewsProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Simple_Editor.TextLog">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAABAAAAIQAAAAAAAAIA=</HashCode>
+      <FileName>TextLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Simple_Editor.EditOperation" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAEAAAEAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>TextLog.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="Simple_Editor.ITextDataProvider" Collapsed="true">
+    <Position X="0.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ITextDataProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Simple_Editor.EditOperationKind" Collapsed="true">
+    <Position X="13" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAABAAAAAAAAAACAAAAAAEAAAA=</HashCode>
+      <FileName>TextLog.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

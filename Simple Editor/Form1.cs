@@ -100,6 +100,9 @@ namespace Simple_Editor
         {
             this.textChanged = true;
             this.ShowStatistics();
+            TextLog log = TextLog.Instance();
+            EditOperation[] logging_data = log.log(this.textEditor.Text);
+            System.Console.WriteLine(logging_data.Length);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
